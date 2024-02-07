@@ -31,10 +31,10 @@ const middle = function(arr) {
     middle = (arr.length - 1) / 2;
     newArray.push(arr[middle]);
   } else {
-    middle = (((arr.length - 1) / 2) - 0.5);
-    newArray.push(arr[middle]);
-    middle = (((arr.length - 1) / 2) + 0.5);
-    newArray.push(arr[middle]);
+    middle = (((arr.length - 1) / 2));
+    newArray.push(arr[Math.floor(middle)]);
+    middle = (((arr.length - 1) / 2));
+    newArray.push(arr[Math.ceil(middle)]);
   }
   console.log(newArray);
   return newArray;
@@ -52,7 +52,7 @@ middle([1, 2, 3, 4, 5, 6]) // => [3, 4]
 //Other Test Cases:
 console.log("Other test cases:")
 //Empty Array
-middle([]) // => [3, 4]
+middle([]) // => []
 //Long Array Odd
 middle([1, 2, 3, 4, 5, 1, 2, 11, 4, 5, 1, 2, 3, 4, 5]) // => [11]
 //Long Array Even
