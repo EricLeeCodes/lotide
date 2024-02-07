@@ -10,17 +10,19 @@ const assertEqual = function(actual, expected) {
 
 const eqArrays = function(arr1, arr2) {
   let isTrue = true;
-  for(i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      if(arr2[j] === arr1[i]) {
+  if (arr1.length === arr2.length) {
+    for (i = 0; i < arr1.length; i++) {
+      if (arr1[i] === arr2[i]) {
         isTrue = true;
       } else {
         isTrue = false;
       }
     }
+  } else {
+    isTrue = false;
   }
   return isTrue;
-}
+};
 
 //Tests for different numbers
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => true
