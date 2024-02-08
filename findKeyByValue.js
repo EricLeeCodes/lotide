@@ -14,12 +14,12 @@ const findKeyByValue = function (object, value) {
         return key;
       }
     } else {
-      return "Please input a valid value";
+      return undefined;
     }
   }
-}
+};
 
-const bestTVShowsByGenre = { 
+const bestTVShowsByGenre = {
   sci_fi: "The Expanse",
   comedy: "Brooklyn Nine-Nine",
   drama:  "The Wire"
