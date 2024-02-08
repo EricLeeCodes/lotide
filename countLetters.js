@@ -10,7 +10,7 @@ const countLetters = function(string) {
   let results = {};
   if (typeof string === 'string') {
     for (const letter of string) {
-      if (results[letter]) {
+      if (letter !== ' ' && results[letter]) {
         results[letter]++;
       } else {
         results[letter] = 1;
@@ -28,3 +28,9 @@ const countLetters = function(string) {
 countLetters("Hello");
 //Int
 countLetters(12);
+
+let result = countLetters("Hello");
+assertEqual(result['H'], 1);
+assertEqual(result['e'], 1);
+assertEqual(result['l'], 2);
+assertEqual(result['o'], 1);
