@@ -32,10 +32,9 @@ const eqObjects = function (object1, object2) {
         //Checks if the arrays are equal. If true then true.
         if (!eqArrays(object1[key], object2[key])) {
           return false;
-        } 
-      }
+        }
       //If the key doesn't match, returns false
-      if (object1[key] !==  object2[key]) {
+      } else if (object1[key] !==  object2[key]) {
         return false;
       }
     }
