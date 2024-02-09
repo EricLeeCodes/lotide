@@ -19,49 +19,43 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+//Test primitives as values
+//Test Arrays as values
 const eqObjects = function (object1, object2) {
-  let isPerfectMatch = true;
-  let object1Array = [];
-  let object2Array = [];
-
-  //Putting objects value into arrays
-  for(let key in object1) { 
-  object1Array.push(object1[key]);
-  }
-  for(let key in object1) { 
-  object2Array.push(object2[key]);
-  }
-
-  // Check to see if Array.isArray
-  for (const arrayKey of object1Array) {
-    if (Array.isArray(arrayKey)) {
-      eqObjects(object1Array[arrayKey], object2Array[arrayKey]);
-  //else, theyre primitive values
-  } else {
-    //Checking if the length of both arrays are the same
-    if(object1Array.length === object2Array.length){
-    for (let i = 0; i < object1Array.length; i++) {
-      if (object1Array[i] === object2Array[i]) {
-        return isPerfectMatch = true;
-      } else {
-        return isPerfectMatch = false;
-      }
-    }
+  let arrayObject1 = Object.keys(object1);
+  let arrayObject2 = Object.keys(object2);
+  console.log(arrayObject1, arrayObject2)
+// Compare primitive values
+  for (const key of arrayObject1) {
+    if(arrayObject1.length === arrayObject2.length && object1[key] === object2[key]){
+      return true;
+      // Compare Array values
+    } else if(Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+      eqArrays(object1[key], object2[key]);
     } else {
       return false;
     }
   }
-  return isPerfectMatch;
-}
+  return true;
 }
 //Test Cases:
 
 //Same object, different names
-const waterBottle = { material: ["tin", "steel"], size: "small" };
-const anotherWaterBottle = { size: "small", material: ["tin", "steel"]}; 
+const waterBottle = { material: "tin", size: "small" };
+const anotherWaterBottle = { size: "small", material: "tin"}; 
 assertEqual(eqObjects(waterBottle, anotherWaterBottle), true);
+
+//Same object, different names arrayed
+const waterBottleArrayed = { material: ["tin", "steel"], size: "small" };
+const anotherWaterBottleArrayed = { size: "small", material: ["tin", "steel"]}; 
+assertEqual(eqObjects(waterBottleArrayed, anotherWaterBottleArrayed), true);
 
 // Different objects
 const shoeObject = { size: "large",  color: "black"};
 const pantsObject = { color: "blue", size: "humongous" };
+assertEqual(eqObjects(shoeObject, pantsObject), false);
+
+// Mismatched Lengths
+const shoeObject2 = { size: "large",  color: "black", isShoe: true};
+const pantsObject2 = { color: "blue", size: "humongous" };
 assertEqual(eqObjects(shoeObject, pantsObject), false);
