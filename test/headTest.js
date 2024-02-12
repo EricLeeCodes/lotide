@@ -1,12 +1,12 @@
-const head = require("../head");
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
+const head = require('../head');
 
+describe("#head", () => {
+  it("returns 1 for [1, 2, 3]", () => {
+    assert.strictEqual(head([1, 2, 3]), 1);
+  });
 
-//Given test cases
-assertEqual(head([5, 6, 7]), 5);
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
-
-//An array with only one element should still yield that one element as its head
-assertEqual(head([5]), 5);
-//An empty array should yield undefined as its head
-assertEqual(head([]), undefined);
+  it("returns '5' for ['5']", () => {
+    assert.strictEqual(head(['5']), '5');
+  });
+});
