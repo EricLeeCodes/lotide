@@ -3,7 +3,6 @@ const middle = function(arr) {
   let middle = 0;
 
   if (arr.length <= 2) {
-    console.log(newArray);
     return newArray;
   } else if (arr.length % 2 === 1) {
     middle = (arr.length - 1) / 2;
@@ -14,8 +13,9 @@ const middle = function(arr) {
     middle = (((arr.length - 1) / 2));
     newArray.push(arr[Math.ceil(middle)]);
   }
-  console.log(newArray);
   return newArray;
 };
 
+
+console.log(middle([1, 2, 3]));
 module.exports = middle;
