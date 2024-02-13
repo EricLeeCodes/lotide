@@ -1,8 +1,8 @@
 {
-  "name": "lotide",
+  "name": "@ericleecodes/lotide",
   "version": "1.0.0",
-  "description": "",
-  "main": "assertArraysEqual.js",
+  "description": "A library built for learning purposes of various functions, inpired by Lodash.",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/EricLeeCodes/lotide.git"
   },
-  "author": "",
+  "author": "Eric Lee",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/EricLeeCodes/lotide/issues"
